@@ -22,17 +22,16 @@ mongoose
     });
 app.use(bodyparser.json());
 app.use(cors());
- // Serve static images from the images folder
+
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use("/user", userRoutes)
 
 
-// Use image-related routes
 app.use("/api/images", imageRoutes);
 
-app.use("/home", (req, res) => {
-  res.send("<h3>Welcome To</h3>");
+app.use("/", (req, res) => {
+  res.send("<h3>Welcome To Soul Library</h3>");
 });
 
 app.listen(PORT, "0.0.0.0", () => {
